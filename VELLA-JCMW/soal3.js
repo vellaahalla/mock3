@@ -1,19 +1,22 @@
-let arrCoin = [25, 10, 5, 1]
-
-let countCoint = 0
-
-function cekKoin(koin) {
-    for (let i = 0; i < arrCoin.length; i++) {
-        for (let j = 0; j <= i; j++) {
-            if (koin / arrCoin[j] >= 1) {
-                countCoint += 1
-                koin -= arrCoin[j]
+function cekKoin(koin){
+    let arrCoint =[25,10,5,1]
+    let countCoint = 0
+    let currentCoint = koin
+    
+    while (currentCoint>0){
+        for (let i=0; i<arrCoint.length; i++){
+            if (currentCoint>=arrCoint[i]){
+                currentCoint -= arrCoint[i]
+                countCoint++
+                break
             }
         }
     }
-    console.log(`Jumlah koin anda adalah ${countCoint}`)
+    return `
+    Jumlah koin Anda adalah ${countCoint}
+    `
 }
 
-cekKoin(31)
-cekKoin(49)
-cekKoin(50)
+console.log(cekKoin(31))
+console.log(cekKoin(49))
+console.log(cekKoin(50))
